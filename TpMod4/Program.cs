@@ -1,2 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿class Program
+{
+    static void Main()
+    {
+        Console.Write("Masukkan nama kelurahan: ");
+        string kelurahan = Console.ReadLine();
+        Console.WriteLine("Kode Pos " + kelurahan + ": " + KodePos.GetKodePos(kelurahan));
+    }
+}
