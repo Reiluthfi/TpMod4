@@ -6,7 +6,7 @@ class KodePos
     private static readonly Dictionary<string, string> kodePosMap = new Dictionary<string, string>
     {
         {"Batununggal", "40266"},
-        {"A. Kujangsari", "40287"},
+        {"Kujangsari", "40287"},
         {"Mengger", "40267"},
         {"Wates", "40256"},
         {"Cijaura", "40287"},
@@ -18,16 +18,8 @@ class KodePos
         {"Samoja", "40273"}
     };
 
-    // Fungsi untuk mencari kode pos berdasarkan kelurahan
-    string GetKodePos(string kelurahan)
+    public static string GetKodePos(string kelurahan)
     {
-        for (int i = 0; i < kodePosArray.GetLength(0); i++)
-        {
-            if (kodePosArray[i, 0] == kelurahan)
-    {
-                return kodePosArray[i, 1];
-            }
-        }
-        return "Kode pos tidak ditemukan";
+        return kodePosMap.TryGetValue(kelurahan, out string kodePos) ? kodePos : "Kode pos tidak ditemukan";
     }
 }
