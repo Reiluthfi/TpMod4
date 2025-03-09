@@ -18,8 +18,16 @@ class KodePos
         {"Samoja", "40273"}
     };
 
-    public static string GetKodePos(string kelurahan)
+    // Fungsi untuk mencari kode pos berdasarkan kelurahan
+    string GetKodePos(string kelurahan)
     {
-        return kodePosMap.TryGetValue(kelurahan, out string kodePos) ? kodePos : "Kode pos tidak ditemukan";
+        for (int i = 0; i < kodePosArray.GetLength(0); i++)
+        {
+            if (kodePosArray[i, 0] == kelurahan)
+    {
+                return kodePosArray[i, 1];
+            }
+        }
+        return "Kode pos tidak ditemukan";
     }
 }
